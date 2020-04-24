@@ -41,7 +41,7 @@ class Card
      * returns the sequential index of this card in the same suit
      *
      * @param bool $shouldReturnHighs if put as true, it will consider Ace to have a rank > King (K) which means a rank
-     *   of 14(1+13) and 2 to 4 as 15(2+13) to 17(4+13) to be considered in a hig hand set such a ("Qs", "Kh", "Ad", "1c", "2d")
+     *   of 14(1+13) and 2 to 4 as 15(2+13) to 17(4+13) to be considered in a high hand set such a ("Qs", "Kh", "Ad", "1c", "2d")
      *
      * @return int return a value of low or high of this card
      */

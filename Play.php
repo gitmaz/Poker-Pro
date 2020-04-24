@@ -11,6 +11,8 @@
  * Alternatively pay attention to the random selection of cards appearing on the first line of output when running this
  * app and check the results logically
  *
+ * Note: a set of 5 cards is called "hand" throughout this application
+ *
  * @author Maziar Navabi <mn.usyd@gmail.com> 24/04/2020
  */
 

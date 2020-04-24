@@ -19,16 +19,17 @@ class Player
 
     /**
      * @param $handSelectionStrategy an interface of type iHandSelectionStrategy
+     * @return CardSet
      */
-    static function checkIfHandIsStraightOrFlush($handSelectionStrategy)
+    static function checkIfHandIsStraightOrFlush($handSelectionStrategy, &$isStraight, &$isFlush)
     {
 
         for ($shouldReturnHigh = 0; $shouldReturnHigh <= 1; $shouldReturnHigh++) {
             $hand = $handSelectionStrategy->getSample($shouldReturnHigh);
-            $sameSuit = true;
-            $complies = $hand->areCardValuesAdjacentOrSameSuit($sameSuit);
-            $flushPhrase = $sameSuit ? " Flush!!" : "";
-            if ($complies) {
+            $isFlush = true;
+            $isStraight = $hand->areCardValuesAdjacentOrSameSuit($isFlush);
+            $flushPhrase = $isFlush ? " Flush!!" : "";
+            if ($isStraight) {
                 echo "Cards at hand is: " . $hand->toString() . "\n\n";
                 echo "Cards at hand is Straight{$flushPhrase}!";
                 break;
@@ -40,6 +41,8 @@ class Player
                 echo "Cards at hand is not Straight.";
             }
         }
+
+        return $hand;
     }
 
 }
