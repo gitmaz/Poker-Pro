@@ -5,7 +5,8 @@ use Classes\Player;
 /**
  * Class PlayerTests
  *
- * Sample test case suit
+ * main test case suit to test final functionality of the Poker-Pro program (ie detection of straightness of a set of
+ *  automatically and randomly chosen cards as well as being a flush set).
  * @author Maziar Navabi <mn.usyd@gmail.com> 24/04/2020
  */
 class PlayerTests extends \PHPUnit_Framework_TestCase
@@ -22,13 +23,12 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $settings  = array();
+        $settings = array();
 
         /** Because I'm lazy... **/
         $reflector = new \ReflectionClass($this);
 
-        foreach ($reflector->getConstants() as $key => $value)
-        {
+        foreach ($reflector->getConstants() as $key => $value) {
             $settings[strtolower($key)] = $value;
         }
 
@@ -43,20 +43,20 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
 
         $handSelectionStrategy = new \Classes\RandomHandSelection();
 
-        $hand=$handSelectionStrategy->getSample(true);
+        $hand = $handSelectionStrategy->getSample(true);
 
 
-        $patternHand='/^(([A|J|Q|K]|[2-9]|10)[s|c|h|d],?){5}$/';
+        $patternHand = '/^(([A|J|Q|K]|[2-9]|10)[s|c|h|d],?){5}$/';
 
-        $firstHandStr=$hand->toString();
-        $isCorrectHandSet=preg_match($patternHand, $firstHandStr);
-        $this->assertEquals($isCorrectHandSet, 1,"failed to create a random hand set: $firstHandStr is not in a correct format as of a set of 5 cards!");
+        $firstHandStr = $hand->toString();
+        $isCorrectHandSet = preg_match($patternHand, $firstHandStr);
+        $this->assertEquals($isCorrectHandSet, 1, "failed to create a random hand set: $firstHandStr is not in a correct format as of a set of 5 cards!");
 
         //get another sample and assert if it is not equal previous one
-        $hand=$handSelectionStrategy->getSample(true);
-        $secondHandStr=$hand->toString();
-        $isCorrectHandSet=preg_match($patternHand, $secondHandStr);
-        $this->assertEquals($isCorrectHandSet, 1,"failed to create a random hand set: $secondHandStr is not in a correct format as of a set of 5 cards!");
+        $hand = $handSelectionStrategy->getSample(true);
+        $secondHandStr = $hand->toString();
+        $isCorrectHandSet = preg_match($patternHand, $secondHandStr);
+        $this->assertEquals($isCorrectHandSet, 1, "failed to create a random hand set: $secondHandStr is not in a correct format as of a set of 5 cards!");
 
 
         $this->assertNotEquals($firstHandStr, $secondHandStr, "failed to create a fresh set of random hand as $firstHandStr is same hand as $secondHandStr!");
@@ -72,12 +72,12 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
 
         $handSelectionStrategy = new \Classes\StraightHandSelection();
 
-        $isStraight=false;
-        $isFlush=false;
-        $hand=Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
+        $isStraight = false;
+        $isFlush = false;
+        $hand = Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
 
-        $handStr=$hand->toString();
-        $this->assertTrue($isStraight, 1, "failed to detect ".$handStr."as a straight hand in testCanDetectStraightCases!");
+        $handStr = $hand->toString();
+        $this->assertTrue($isStraight, 1, "failed to detect " . $handStr . "as a straight hand in testCanDetectStraightCases!");
     }
 
     /**
@@ -88,13 +88,13 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
 
         $handSelectionStrategy = new \Classes\StraightFlushHandSelection();
 
-        $isStraight=false;
-        $isFlush=false;
-        $hand=Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
+        $isStraight = false;
+        $isFlush = false;
+        $hand = Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
 
-        $handStr=$hand->toString();
-        $this->assertTrue($isStraight,"failed to detect ".$handStr."as a straight hand in testCanDetectStraightFlushCases!");
-        $this->assertTrue($isFlush, "failed to detect ".$handStr."as a flush hand in testCanDetectStraightFlushCases!");
+        $handStr = $hand->toString();
+        $this->assertTrue($isStraight, "failed to detect " . $handStr . "as a straight hand in testCanDetectStraightFlushCases!");
+        $this->assertTrue($isFlush, "failed to detect " . $handStr . "as a flush hand in testCanDetectStraightFlushCases!");
     }
 
     /**
@@ -105,12 +105,12 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
 
         $handSelectionStrategy = new \Classes\StraightAceInTheMiddleHandSelection();
 
-        $isStraight=false;
-        $isFlush=false;
-        $hand=Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
+        $isStraight = false;
+        $isFlush = false;
+        $hand = Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
 
-        $handStr=$hand->toString();
-        $this->assertTrue($isStraight,"failed to detect ".$handStr."as a straight hand in testCanDetectStraightFlushAceInTheMiddleCases!");
+        $handStr = $hand->toString();
+        $this->assertTrue($isStraight, "failed to detect " . $handStr . "as a straight hand in testCanDetectStraightFlushAceInTheMiddleCases!");
     }
 
     /**
@@ -121,12 +121,12 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
 
         $handSelectionStrategy = new \Classes\MisspelledSuitHandSelection();
 
-        $isStraight=false;
-        $isFlush=false;
+        $isStraight = false;
+        $isFlush = false;
         try {
             $hand = Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
-        }catch (Exception $ex){
-            $this->assertContains("suit", $ex->getMessage(), "failed to trigger exception on misspelled suit in a card definition" );
+        } catch (Exception $ex) {
+            $this->assertContains("suit", $ex->getMessage(), "failed to trigger exception on misspelled suit in a card definition");
         }
 
     }
@@ -139,18 +139,15 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
 
         $handSelectionStrategy = new \Classes\WrongRankHandSelection();
 
-        $isStraight=false;
-        $isFlush=false;
+        $isStraight = false;
+        $isFlush = false;
         try {
             $hand = Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
-        }catch (Exception $ex){
-            $this->assertContains("rank", $ex->getMessage(), "failed to trigger exception on wrong rank in a card definition" );
+        } catch (Exception $ex) {
+            $this->assertContains("rank", $ex->getMessage(), "failed to trigger exception on wrong rank in a card definition");
         }
 
     }
-
-
-
 
 
 }
