@@ -33,11 +33,9 @@ on the console and then press enter.
   
 #### Unit tests
 
-This application is ready for unit tests, but as the Play.php is self explanatory and tests different use cases 
-(using strategy design pattern), writing unit test is postponed. There is an empty Test case class to be filled for
-future expansions.
+Test cases for final functionality of project is put in PlayerTests.php
 
-to run future test cases individually use this syntax:
+to run test cases individually use this syntax:
 vendor/bin/phpunit --filter testExampleCase ExampleTests ./tests/ExampleTests.php 
  
 
