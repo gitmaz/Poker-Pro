@@ -7,10 +7,10 @@ use Classes\Card;
 use Classes\CardSet;
 
 /**
- * * This is a strategy of faking a misspeled card suit (x instead of c) in a known set of hand cards:
+ * * This is a strategy of faking a misspelled card suit (x instead of c) in a known set of hand cards:
  *  ("Ad","2s","3x","4h", "5s")
  *
- * Class MisspeledSuitHandSelection
+ * Class MisspelledSuitHandSelection
  * @package Classes
  * @author Maziar Navabi <mn.usyd@gmail.com> 24/04/2020
  */

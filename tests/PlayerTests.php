@@ -36,7 +36,7 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
 
 
     /**
-     * test case for successful straight, ace in the middle hand detection
+     * test case for successful creation of random set of cards
      */
     public function testCanCreateRandomHandCases()
     {
@@ -111,6 +111,42 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
 
         $handStr=$hand->toString();
         $this->assertTrue($isStraight,"failed to detect ".$handStr."as a straight hand in testCanDetectStraightFlushAceInTheMiddleCases!");
+    }
+
+    /**
+     * test case for successful rejection of misspelled suits in card definitions
+     */
+    public function testCanRejectMisspelledSuitsInCardDefinitions()
+    {
+
+        $handSelectionStrategy = new \Classes\MisspelledSuitHandSelection();
+
+        $isStraight=false;
+        $isFlush=false;
+        try {
+            $hand = Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
+        }catch (Exception $ex){
+            $this->assertContains("suit", $ex->getMessage(), "failed to trigger exception on misspelled suit in a card definition" );
+        }
+
+    }
+
+    /**
+     * test case for successful rejection of wrong ranks in card definitions
+     */
+    public function testCanRejectWrongRanksInCardDefinitions()
+    {
+
+        $handSelectionStrategy = new \Classes\WrongRankHandSelection();
+
+        $isStraight=false;
+        $isFlush=false;
+        try {
+            $hand = Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
+        }catch (Exception $ex){
+            $this->assertContains("rank", $ex->getMessage(), "failed to trigger exception on wrong rank in a card definition" );
+        }
+
     }
 
 
