@@ -29,7 +29,9 @@ try {
     foreach ($strategies as $strategy) {
         $handSelectionStrategyClassName = "Classes\\{$strategy}HandSelection";
         $handSelectionStrategy = new $handSelectionStrategyClassName();
-        Player::checkIfHandIsStraightOrFlush($handSelectionStrategy);
+        $isStraight=false;
+        $isFlush=false;
+        Player::checkIfHandIsStraightOrFlush($handSelectionStrategy, $isStraight, $isFlush);
         echo "\n-----------------------------------\n";
     }
 }catch(\Exception $ex){
