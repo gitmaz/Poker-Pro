@@ -4,6 +4,11 @@ Poker-Pro is a demo application that demonstrates basic oop concepts (SOLID prin
 
    - Functionality:  It picks a random set of playing cards hand and checks whether they are "Straight" or "Straight Flush" according to Poker's
    high low standard rules.
+   
+   Reference:
+   Straight : http://en.wikipedia.org/wiki/List_of_poker_hands#Straight
+   
+   Straight Flush : http://en.wikipedia.org/wiki/List_of_poker_hands#Straight_flush
  
 #### How to install
 
