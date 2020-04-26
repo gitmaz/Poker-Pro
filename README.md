@@ -33,7 +33,7 @@ on the console and then press enter.
   
 #### Unit tests
 
-Test cases for final functionality of project is put in PlayerTests.php
+Test cases for final functionality of project is put in test directory for each of the main classes
 
 to run test cases individually use this syntax:
 vendor/bin/phpunit --filter testExampleCase ExampleTests ./tests/ExampleTests.php 
