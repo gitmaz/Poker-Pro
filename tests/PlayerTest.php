@@ -3,13 +3,13 @@
 use Classes\Player;
 
 /**
- * Class PlayerTests
+ * Class PlayerTest
  *
  * main test case suit to test final functionality of the Poker-Pro program (ie detection of straightness of a set of
  *  automatically and randomly chosen cards as well as being a flush set).
  * @author Maziar Navabi <mn.usyd@gmail.com> 24/04/2020
  */
-class PlayerTests extends \PHPUnit_Framework_TestCase
+class PlayerTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -25,7 +25,7 @@ class PlayerTests extends \PHPUnit_Framework_TestCase
     {
         $settings = array();
 
-        /** Because I'm lazy... **/
+
         $reflector = new \ReflectionClass($this);
 
         foreach ($reflector->getConstants() as $key => $value) {

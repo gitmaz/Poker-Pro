@@ -22,7 +22,7 @@ class ExampleTests extends \PHPUnit_Framework_TestCase
     {
         $settings  = array();
 
-        /** Because I'm lazy... **/
+
         $reflector = new \ReflectionClass($this);
 
         foreach ($reflector->getConstants() as $key => $value)

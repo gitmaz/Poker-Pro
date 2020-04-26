@@ -182,4 +182,13 @@ class CardSet
         }
         return $handStr;
     }
+
+    /**
+     * @param $shouldReturnHighs  if set to false, A (and its proceeding cards) have lower rank than highest cards (ex K), they
+     *  have higher ranks otherwise
+     */
+    public static function setHighOrLowRules($shouldReturnHighs){
+        self::$shouldReturnHighs = $shouldReturnHighs;
+
+    }
 }
