@@ -28,7 +28,7 @@ php Play.php
 on the console and then press enter.
 
   To test with arbitrary set of hands, just write a new strategy similar to StraightHandSelection.php to see if
-  the application really works (you need to then add this at the end of $strategies array below).
+  the application really works (you need to then add this at the end of $strategies array defined at the beginning Play.php in root folder).
  
   Alternatively, pay attention to the random selection of cards appearing on the first line of output when running this
   app and check the results logically.

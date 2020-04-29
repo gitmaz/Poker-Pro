@@ -48,7 +48,7 @@ class Card
     function getValue($shouldReturnHighs = false)
     {
         if ($shouldReturnHighs) {
-            if ($this->value <= 4) { //this will cover all the cased of ace being in the middle (ex: Q K A 2 3 or K A 2 3 4 etc)
+            if ($this->value <= 4) { //this will cover all the cases of ace being in the middle (ex: Q K A 2 3 or K A 2 3 4 etc)
                 return $this->value + 13;
             }
         }

@@ -7,7 +7,7 @@ use Classes\Card;
 use Classes\CardSet;
 
 /**
- * * This is a strategy of selecting a known sample straight hand which have ace in the middle: ie:
+ * * This is a strategy of selecting a known sample straight hand which does not have ace in the middle: ie:
  *  ("Ad","2s","3c","4h", "5s")
  *
  * Class StraightHandSelection

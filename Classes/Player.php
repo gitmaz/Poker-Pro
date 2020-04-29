@@ -6,7 +6,7 @@ use Classes\iHandSelectionStrategy;
 
 /**
  * Class Player  This class is responsible for playing cards by checking if chosen set of hand is Straight or Straight flush
- *  ie cards of a hand are sequential and adjacent and wether or not they fall into same suit.
+ *  ie cards of a hand are sequential and adjacent and whether or not they fall into same suit.
  *
  *  This is used as a manager design  pattern and by itself it does not do this job, it only coordinates between hand selection
  *  strategies and card set organiser objects which are delegated to do this job.

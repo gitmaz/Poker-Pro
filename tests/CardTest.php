@@ -33,7 +33,7 @@ class CardTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * test that CardS can create a single card (parsing the face name str and setting its corresponding member variables for
+     * test that Card can create a single card (parsing the face name str and setting its corresponding member variables for
      *  rank, suit and index)
      */
     public function testCanCreateA_CardBySupplyingAttributesInOneString()

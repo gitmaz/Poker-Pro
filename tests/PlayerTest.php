@@ -100,7 +100,7 @@ class PlayerTest extends \PHPUnit_Framework_TestCase
     /**
      * test case for successful straight ace in the middle hand detection
      */
-    public function testCanDetectStraightFlushAceInTheMiddleCases()
+    public function testCanDetectStraightAceInTheMiddleCases()
     {
 
         $handSelectionStrategy = new \Classes\StraightAceInTheMiddleHandSelection();

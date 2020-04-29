@@ -1,12 +1,12 @@
 <?php
 /*
  * This application is a demo of writing an application in oop using SOLID principals and Strategy Design Pattern
- *  It can pick a random set of playing cards hand an check whether they are "Straight" or "Straight Flush" according to Poker
+ *  It can pick a random set of playing cards hand and check whether they are "Straight" or "Straight Flush" according to Poker
  *  high low standard rules
  *
  * note: to run, type: php Play.php on the console and then press enter
  * to test with arbitrary set of hands, just write a new strategy similar to StraightHandSelection.php to see if
- * the application really works (you need to then add this at the end of $strategies array below.
+ * the application really works (you need to then add this at the end of $strategies array below).
  *
  * Alternatively pay attention to the random selection of cards appearing on the first line of output when running this
  * app and check the results logically
